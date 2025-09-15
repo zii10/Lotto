@@ -19,22 +19,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Play(modifier: Modifier = Modifier) {
-    // 使用 remember 和 mutableStateOf 來記住並更新樂透數字
-    var lucky by remember { mutableStateOf((1..100).random()) }
+
+    var lucky = (1..100).random()
 
     Box(
-        modifier = modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center // 水平垂直置中
+        modifier = modifier.fillMaxSize(), // 讓 Box 填滿整個螢幕
+        contentAlignment = Alignment.Center // 水平與垂直置中
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
                 text = "樂透數字(1-100)為 $lucky"
             )
             Button(
-                onClick = { lucky = (1..100).random() } // 按鈕按下時更新 lucky 值
+                onClick = { lucky = (1..100).random() }
             ) {
                 Text("重新產生樂透碼")
             }
         }
     }
 }
+
