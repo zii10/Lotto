@@ -34,22 +34,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Play(modifier: Modifier = Modifier) {
-    var Lucky =(1..100).random()
-    Column(modifier = modifier) {
-        Text(
-        text = "樂透數字(1-100)為$Lucky",
+
+    var lucky = (1..100).random()
+
+    Text(
+        text = "樂透數字(1-100)為 $lucky",
         modifier = modifier
     )
+    Button(
+        onClick = { lucky = (1..100).random() }
 
-        Button(
-
-            onClick = { Lucky = (1..100).random() }
-
-        ) {
-
-            Text("重新產生樂透碼")
-
-        } }
-
-
+    ) {
+        Text("重新產生樂透碼")
+    }
 }
