@@ -5,6 +5,7 @@ import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -34,19 +35,21 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Play(modifier: Modifier = Modifier) {
     var Lucky =(1..100).random()
-
-    Text(
+    Column(modifier = modifier) {
+        Text(
         text = "樂透數字(1-100)為$Lucky",
         modifier = modifier
     )
 
-    Button(
+        Button(
 
-        onClick = { Lucky = (1..100).random() }
+            onClick = { Lucky = (1..100).random() }
 
-    ) {
+        ) {
 
-        Text("重新產生樂透碼")
+            Text("重新產生樂透碼")
 
-    }
+        } }
+
+
 }
